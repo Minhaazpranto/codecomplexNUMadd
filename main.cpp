@@ -22,8 +22,8 @@ int main(){
  c1.setNumber(1,4);
  c1.printNumber();
 
- c1.setNumber(5,8);
- c1.printNumber();
+ c2.setNumber(5,8);
+ c2.printNumber();
 
  Sum=sumComplex(c1,c2);
  Sum.printNumber();
