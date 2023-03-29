@@ -1,32 +1,50 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-class Complex{
-    int a , b;
-public :
-    void setNumber (int n1,int n2){
-        a=n1;
-        b=n2;
+
+class Area
+{
+
+    float a,l,b;
+public:
+    Area()
+    {
+        cout<<"Simple constructor called.........\n";
+        cout<<"\nEnter the length of the Rectangle :";
+        cin>>l;
+        cout<<"Enter the breadth of the Rectangle :";
+        cin>>b;
     }
-    void printNumber() {
-        cout << "Your number is " << a << "+i" << b << endl;
+    Area(float x,float y)
+    {
+        l=x;
+        b=y;
     }
-    friend Complex sumComplex(Complex o1,Complex o2);
+    void calc();
+    void print();
+    ~Area();
 };
-Complex sumComplex(Complex o1,Complex o2) {
-    Complex o3;
-    o3.setNumber((o1.a + o2.a),(o1.b + o2.b));
-    return o3;
+void Area::calc()
+{
+    a=l*b;
 }
-int main(){
- Complex c1,c2,Sum;
- c1.setNumber(1,4);
- c1.printNumber();
-
- c2.setNumber(5,8);
- c2.printNumber();
-
- Sum=sumComplex(c1,c2);
- Sum.printNumber();
-
- return 0;
+void Area::print()
+{
+    cout<<"Area of the Rectangle is :"<<a<<endl;
+}
+Area::~Area()
+{
+    cout << "\nObject is being deleted" << endl;
+}
+int main()
+{
+    float l,b;
+    Area a1;
+    a1.calc();
+    a1.print();
+    cout<<"\nEnter length and breadth for parameterised constructor:\n";
+    cin>>l>>b;
+    Area a2(l,b);
+    a2.calc();
+    a2.print();
+    return 0;
 }
