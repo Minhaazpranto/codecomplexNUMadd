@@ -1,50 +1,51 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-
-class Area
+class student
 {
-
-    float a,l,b;
+private:
+    string name;
+    int  rollNo;
+    float  height;
+    int weight;
 public:
-    Area()
+    student(string n,int r,float h,int w)
     {
-        cout<<"Simple constructor called.........\n";
-        cout<<"\nEnter the length of the Rectangle :";
-        cin>>l;
-        cout<<"Enter the breadth of the Rectangle :";
-        cin>>b;
+        name=n;
+        rollNo=r;
+        height=h;
+        weight=w;
+
     }
-    Area(float x,float y)
-    {
-        l=x;
-        b=y;
-    }
-    void calc();
-    void print();
-    ~Area();
+    void display();
+    ~student();
 };
-void Area::calc()
+
+void student::display()
 {
-    a=l*b;
+    cout << "\n\nStudent details..............\n";
+    cout<<"The name of student : "<<name<<"\nRoll No.of the student : "<<rollNo<<"\nHeight of the student : "<<height<<"\nWeight of the student :"<<weight<<endl;
 }
-void Area::print()
-{
-    cout<<"Area of the Rectangle is :"<<a<<endl;
+
+student :: ~student(){
+    cout<<"\nDestructor is called";
 }
-Area::~Area()
-{
-    cout << "\nObject is being deleted" << endl;
-}
-int main()
-{
-    float l,b;
-    Area a1;
-    a1.calc();
-    a1.print();
-    cout<<"\nEnter length and breadth for parameterised constructor:\n";
-    cin>>l>>b;
-    Area a2(l,b);
-    a2.calc();
-    a2.print();
+
+int main() {
+    string n;
+    int r,w;
+    float h;
+    cout<<"Enter the information of student............";
+    cout<<"\nEnter the Name :";
+    cin>>n;
+    cout<<"Enter the Roll Number :";
+    cin>>r;
+    cout<<"Enter the Height :";
+    cin>>h;
+    cout<<"Enter the Weight :";
+    cin>>w;
+    student obj(n,r,h,w);
+    student obj1=obj;
+    obj1.display ();
     return 0;
+
 }
